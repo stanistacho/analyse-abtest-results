@@ -1,48 +1,29 @@
-# Project: Investigate a Movie Dataset (TMDb Dataset)
+# Project: Analyze A/B Test Results
 ## by Stanislava Stachova
 ---
 
 
 ## Table of Contents
-1. Introduction
-2. Data Wrangling
-3. Exploratory Data Analysis
-4. Conclusions
+* Introduction
+* Part I - Probability
+* Part II - A/B Test
+* Part III - Regression
+* Conclusion
 ---
 
 
 ## Dataset
-This data set contains information about nearly **11,000 movies** collected **from The Movie Database**(TMDb), including user ratings, popularity, budget and revenue, genre, runtime, release date, and others. The analysis consists of two reaserach parts with main leading question supporting by couple of sub-questions helping to answer the leading question.
----
+This project focuses on understanding of the results of an A/B test run by an e-commerce website. The company has developed a new web page in order to try and increase the number of users who __"convert"__, meaning the number of users who __decide to pay for the company's product__. 
 
+The goal is to work through this notebook to help the company understand if it should implement this new page, keep the old page, or perhaps run the experiment longer to make their decision.
 
-## The project covers following research questions
-The analysis consists of following:
-
-##### Research Part 1: What features are associated with successful movie?
-* Question 1: Do more popular movies receive better rating?
-* Question 2: Do more popular movies cost more than less popular movies?
-* Question 3: Do more popular movies earn more than less popular movies?
-* Question 4: Is popularity impacted by release year or runtime?
-
-
-##### Research Part 2: What features are associated with popular genre?
-
-* Question 1: Which genres are most popular over years?
-* Question 2: Which genres do earn the most? 
 ---
 
 
 ## Conclusion
-As the exploration analysis has certainly its limitations. I do not focus further on any predictions, the conclusions resulting from the analysed data are open ended and may possible vary if further and more advanced exploration is applied.
+Probability in Part I gives us too general information which could be a bit risky for business to rely on only. The results may be distorted by Simpson's paradox as we calculate results based on groups only. The final result of 50% probability is not very helpful in decision making process. Such results are too simple and dive not deep enough to make decision.
 
-I may conclude that **better rating** received from movie fans, the **more popular** the movie **can be**. However I remind, that popularity index consists of more information than only number of votes/rating.  Vote is one of spectrum information and may say that it **may influence the other** information which are part of popularity index. However, such conclusion is not confirmed by the work and requires further analysis.
+A/B test results evaluation in Part II. shows that as a result of hypothesis setting and testing, p-value is higher comparing to alpha. This tells us that there is no statistically significant influence and we fail to reject null hypothesis. As a result,  business would probably not use new webpage. Using this technique might have its drawbacks, as we did evaluate only factor related to old and new page. However there are plenty of other factors which might influence user in purchase decision (time for decision, time take to test groups, discounts, attractivity of product, etc.).
 
-The conclusion of budget and revenue impact on movie popularity seems reasonable and based on expectations. I made certain simplifications and set budget/revenue levels in order to better capture huge amount of data. Movies with **high budget** (level, quantile 75% and more) were **most popular** and the same conclusion with revenue. **High revenue** (level, quantile 75% and more) earned was connected with movies with **higher popularity index**.
-More resources for filming may be associated with more famous and favorite actors/actresses, higher quality, better promo campaign which may catch more movie fans. More and more movie fans positively influence revenue earned.
 
-There is **no relationship** between **popularity** in terms of **better rating** received and runtime. It means that runtime of popular movie may take 10 minutes or 100 minutes, it is not the feature which movie fan takes into consideration when evaluating the movie.
-
-**Popularity** increased over the period (1960 up to 2015) and the **trend has been increasing**. Such development is expected as it is inline with technological development and much easier access to movies.
-
-From the analysis results that **the most popular genre over period is drama**, even the increase over the times is more than 90%. The popularity of drama may mean that this is the genre which earn most.
+Results from regression in Part III. supports the results in Part II., however p-value even though it is still higher than alpha 0.05, it is much lower than in p-value calculation in Part II. Results supports that there is no statistically significant relationship and we fail to reject null hypothesis. All in all, the Company should evaluate also other factors and add it to the model in order to have better understaning what may impact the decision to convert. However, this may bring also the problem with multicillinearity, which could be reduced through carefull review of other possible factors.
